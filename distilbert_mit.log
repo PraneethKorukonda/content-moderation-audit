@@ -1,0 +1,58 @@
+Device: mps. Training distilbert_mitigated on 100,270 rows ...
+W1109 23:30:42.042000 15660 site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights: 100%|██████████| 100/100 [00:00<00:00, 5961.63it/s]
+[transformers] [1mDistilBertForSequenceClassification LOAD REPORT[0m from: distilbert-base-uncased
+Key                     | Status     | 
+------------------------+------------+-
+vocab_projector.bias    | UNEXPECTED | 
+vocab_transform.bias    | UNEXPECTED | 
+vocab_transform.weight  | UNEXPECTED | 
+vocab_layer_norm.weight | UNEXPECTED | 
+vocab_layer_norm.bias   | UNEXPECTED | 
+classifier.bias         | MISSING    | 
+pre_classifier.bias     | MISSING    | 
+pre_classifier.weight   | MISSING    | 
+classifier.weight       | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+  step 200/6267  loss 0.3163
+  step 400/6267  loss 0.5347
+  step 600/6267  loss 0.2982
+  step 800/6267  loss 0.3712
+  step 1000/6267  loss 0.3315
+  step 1200/6267  loss 0.2508
+  step 1400/6267  loss 0.0609
+  step 1600/6267  loss 0.1157
+  step 1800/6267  loss 0.0500
+  step 2000/6267  loss 0.1022
+  step 2200/6267  loss 0.0274
+  step 2400/6267  loss 0.0182
+  step 2600/6267  loss 0.1017
+  step 2800/6267  loss 0.0098
+  step 3000/6267  loss 0.0189
+  step 3200/6267  loss 0.0221
+  step 3400/6267  loss 0.3713
+  step 3600/6267  loss 0.0168
+  step 3800/6267  loss 0.0173
+  step 4000/6267  loss 0.1183
+  step 4200/6267  loss 0.2661
+  step 4400/6267  loss 0.1866
+  step 4600/6267  loss 0.4517
+  step 4800/6267  loss 0.1785
+  step 5000/6267  loss 0.1616
+  step 5200/6267  loss 0.4823
+  step 5400/6267  loss 0.5232
+  step 5600/6267  loss 0.2736
+  step 5800/6267  loss 0.3064
+  step 6000/6267  loss 0.0266
+  step 6200/6267  loss 0.0738
+  trained in 596.2 min. Scoring val and eval ...
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  1.65it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  1.64it/s]
+  scored 12,800/20,000
+  scored 12,800/60,000
+  scored 25,600/60,000
+  scored 38,400/60,000
+  scored 51,200/60,000
+  AUC 0.948  recall 89.7%  review rate 20.4%  FPR identity 25.2% vs other 13.5%  total 606.6 min

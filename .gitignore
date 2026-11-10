@@ -1,0 +1,9 @@
+data/
+runs/
+__pycache__/
+.pytest_cache/
+*.pyc
+.DS_Store
+.env
+Claude outputs/
+*.zip
